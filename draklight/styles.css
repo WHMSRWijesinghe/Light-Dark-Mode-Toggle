@@ -1,0 +1,81 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+    transition: background-color 0.5s ease;
+}
+
+.toggle-switch {
+    position: relative;
+    width: 500px; 
+    height: 200px; 
+    border-radius: 100px; 
+    box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.2); 
+}
+
+.switch {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    border-radius: 100px; 
+    transition: background-color 0.5s;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    width: 198px; 
+    height: 198px; 
+    border-radius: 50%;
+    background-color: white; 
+    transition: transform 0.5s, background-color 0.5s; 
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3); 
+    transform: translateX(0);
+}
+
+.switch:checked + .slider {
+    background-color: #ffa500;
+}
+
+.switch:checked + .slider:before {
+    transform: translateX(300px); 
+    background: linear-gradient(180deg,#777,#3a3a3a); 
+}
+
+.icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 150px; 
+    height: 150px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sun {
+    left: 30px; 
+}
+
+.moon {
+    right: 30px; 
+    color: white; 
+}
+
+.switch:checked + .slider .sun {
+    opacity: 1;
+}
+
+.switch:checked + .slider .moon {
+    opacity: 0.5;
+    color: white; 
+}
